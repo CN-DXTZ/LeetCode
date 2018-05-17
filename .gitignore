@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Easy/Easy.vcxproj.filters
+/Easy/Easy.vcxproj
+/Hard/Hard.vcxproj.filters
+/Hard/Hard.vcxproj
+/Medium/Medium.vcxproj.filters
+/Medium/Medium.vcxproj
