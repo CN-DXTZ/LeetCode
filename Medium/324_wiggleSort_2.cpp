@@ -21,6 +21,7 @@ public:
 			nums[i] = tmp[k--];
 	}
 } s;
+
 int main()
 {
 	vector<int> nums = { 4,5,5,6 };

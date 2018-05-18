@@ -23,6 +23,7 @@ public:
 		return (int)ans;
 	}
 } s;
+
 int main()
 {
 	int a = 123, b = -321, c = 120;

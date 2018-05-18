@@ -30,6 +30,7 @@ public:
 		}
 	}
 } s;
+
 int main()
 {
 	bool ans1 = s.validPalindrome("abcddba");
