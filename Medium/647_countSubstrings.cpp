@@ -1,7 +1,7 @@
 #include<iostream>
-#include<string>
+#include<string> 
 using namespace std;
-//法二
+// 法二:
 class Solution
 {
 public:
@@ -20,7 +20,7 @@ public:
 		return num;
 	}
 } s;
-//法一
+// 法一:
 //class Solution
 //{
 //	string str;
