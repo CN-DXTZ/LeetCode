@@ -26,10 +26,9 @@ public:
 
 int main()
 {
-	int a = 123, b = -321, c = 120;
-	cout << s.reverse(a) << endl;
-	cout << s.reverse(b) << endl;
-	cout << s.reverse(c) << endl;
+	cout << s.reverse(123) << endl;
+	cout << s.reverse(-321) << endl;
+	cout << s.reverse(120) << endl;
 	system("pause");
 	return 0;
 }

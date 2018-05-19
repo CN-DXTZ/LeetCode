@@ -33,12 +33,9 @@ public:
 
 int main()
 {
-	bool ans1 = s.validPalindrome("abcddba");
-	cout << ans1 << endl;
-	bool ans2 = s.validPalindrome("abddcba");
-	cout << ans2 << endl;
-	bool ans3 = s.validPalindrome("abcd");
-	cout << ans3 << endl;
+	cout << s.validPalindrome("abcddba") << endl;
+	cout << s.validPalindrome("abddcba") << endl;
+	cout << s.validPalindrome("abcd") << endl;
 	system("pause");
 	return 0;
 }

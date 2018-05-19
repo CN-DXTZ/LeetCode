@@ -20,8 +20,7 @@ public:
 int main()
 {
 	vector<int> nums = { 2, 7, 11, 15 };
-	int target = 9;
-	vector<int> ans = s.twoSum(nums, target);
+	vector<int> ans = s.twoSum(nums, 9);
 	cout << ans[0] << " " << ans[1] << endl;
 	system("pause");
 	return 0;
