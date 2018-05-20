@@ -4,15 +4,34 @@ using namespace std;
 class Solution
 {
 public:
+	// 法二: 二分查找
 	int searchInsert(vector<int>& nums, int target)
 	{
-		for (int i = 0; i < nums.size(); i++)
+		int min = 0, max = nums.size(), mid;
+		while (max - min > 1)
 		{
-			if (nums[i] >= target)
-				return i;
+			mid = (max - min) / 2 + min;
+			if (nums[mid] == target)
+				return mid;
+			else if (nums[mid] > target)
+				max = mid;
+			else
+				min = mid;
 		}
-		return nums.size();
+		if (nums[min] >= target)
+			return min;
+		return max;
 	}
+	// 法一
+	//int searchInsert(vector<int>& nums, int target)
+	//{
+	//	for (int i = 0; i < nums.size(); i++)
+	//	{
+	//		if (nums[i] >= target)
+	//			return i;
+	//	}
+	//	return nums.size();
+	//}
 } s;
 
 int main()
