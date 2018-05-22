@@ -33,7 +33,6 @@ public:
 				if (k > 0)
 					ans.push_back({ v[i],v[j], v[k] });
 			}
-
 		}
 		return ans;
 	}
@@ -43,7 +42,7 @@ public:
 		int min = begin, max = v.size() - 1, mid;
 		while (max - min > 1)
 		{
-			mid = (max - min) / 2 + min;
+			mid = (max + min) / 2;
 			if (v[mid] == target)
 				return mid;
 			else if (v[mid] > target)
