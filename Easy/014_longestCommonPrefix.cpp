@@ -5,27 +5,41 @@ using namespace std;
 class Solution
 {
 public:
+	// ·¨Ò»:Öð×Ö·ûÅÐ¶Ï
 	string longestCommonPrefix(vector<string>& strs)
 	{
-		string s = "";
-		// ¿ÕÊý×é¼ì²â 
-		if (!strs.size())
-			return s;
-		char ch, temp;
-		// ¿Õ×Ö·û´®¼ì²â 
-		for (int i = 0; i < strs[0].size(); i++)
-		{
-			ch = i < strs[0].size() ? strs[0][i] : -1;
-			for (int j = 1; j < strs.size(); j++)
+		if (strs.empty())
+			return "";
+		string s = strs[0];
+		int i, j, len = s.length(), n = strs.size();
+		for (i = 0; i < len; i++)
+			for (j = 1; j < n; j++)
 			{
-				temp = i < strs[j].size() ? strs[j][i] : -2;
-				if (ch == -1 || ch != temp)
-					return s;
+				if (strs[j].size() <= i || strs[j][i] != s[i])
+					goto flag;
 			}
-			s += ch;
-		}
-		return s;
+	flag:return  s.substr(0, i);
 	}
+	// ·¨¶þ:Öð´®ÅÐ¶Ï
+	//string longestCommonPrefix(vector<string>& strs)
+	//{
+	//	if (strs.empty())
+	//		return "";
+	//	int n = strs.size();
+	//	string s = strs[0];
+	//	for (int i = 1; i < n; i++)
+	//	{
+	//		if (s.length() > strs[i].length())
+	//			s = s.substr(0, strs[i].length());
+	//		for (int j = 0; j < s.length(); j++)
+	//			if (s[j] != strs[i][j])
+	//			{
+	//				s = s.substr(0, j);
+	//				break;
+	//			}
+	//	}
+	//	return s;
+	//}
 } s;
 
 int main()

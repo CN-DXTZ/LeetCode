@@ -5,63 +5,45 @@ using namespace std;
 class Solution
 {
 public:
-	vector<int> v;
-	vector<vector<int> > threeSum(vector<int>& nums)
+	vector<vector<int>> threeSum(vector<int>& nums)
 	{
-		v = nums;
-		int n = v.size();
-		vector<vector<int> > ans;
-
-		if (!n)
+		vector<vector<int>> ans;
+		if (nums.size() == 0)
 			return ans;
 
-		sort(v.begin(), v.end());
-
-		// 剪枝: 小数<=0
-		for (int i = 0; v[i] <= 0 && i < n - 2; i++)
+		int n = nums.size();
+		sort(nums.begin(), nums.end());
+		for (int i = 0; nums[i] <= 0 && i < n - 2; i++)
 		{
-			// 剪枝: 重复
-			if (i&&v[i] == v[i - 1])
+			if (i && nums[i] == nums[i - 1])
 				continue;
-			// 剪枝: v[i] + 2 * v[j] <= 0
-			for (int j = i + 1; v[i] + 2 * v[j] <= 0 && j < n - 1; j++)
+
+			// 两边趋近 - 升级版 001_twoSum 
+			int tmpTarget = 0 - nums[i];
+			int left = i + 1, right = nums.size() - 1;
+			while (left < right)
 			{
-				// 剪枝: 重复
-				if (j - i != 1 && v[j] == v[j - 1])
-					continue;
-				int k = binarySearch(j + 1, -v[i] - v[j]);
-				if (k > 0)
-					ans.push_back({ v[i],v[j], v[k] });
+				if (nums[left] + nums[right] == tmpTarget)
+				{
+					ans.push_back({ nums[i], nums[left], nums[right] });
+					while (left < right - 1 && nums[right] == nums[right - 1]) 
+						right--;
+					right--;
+				}
+				while (nums[left] + nums[right] < tmpTarget)
+					left++;
+				while (nums[left] + nums[right] > tmpTarget)
+					right--;
 			}
 		}
 		return ans;
-	}
-	// 二分查找
-	int binarySearch(int begin, int target)
-	{
-		int min = begin, max = v.size() - 1, mid;
-		while (max - min > 1)
-		{
-			mid = (max + min) / 2;
-			if (v[mid] == target)
-				return mid;
-			else if (v[mid] > target)
-				max = mid;
-			else
-				min = mid;
-		}
-		if (v[min] == target)
-			return min;
-		else if (v[max] == target)
-			return max;
-		else
-			return -1;
 	}
 } s;
 
 int main()
 {
-	vector<int> a = { -1, 0, 1, 2, -1, -4 };
+	vector<int> a = { -4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0 };
+	//[[-5,1,4],[-4,0,4],[-4,1,3],[-2,-2,4],[-2,1,1],[0,0,0]]
 	vector<vector<int> > ans = s.threeSum(a);
 	for (int i = 0; i < ans.size(); i++)
 	{

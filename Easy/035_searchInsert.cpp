@@ -7,7 +7,7 @@ public:
 	// 法二: 二分查找
 	int searchInsert(vector<int>& nums, int target)
 	{
-		int min = 0, max = nums.size(), mid;
+		int min = 0, max = nums.size() - 1, mid;
 		while (max - min > 1)
 		{
 			mid = (max - min) / 2 + min;

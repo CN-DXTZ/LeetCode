@@ -16,10 +16,13 @@ public:
 			ans = ans * 10 + x % 10;
 			x /= 10;
 		}
-		if ((ans - negetive) > ((1 << 31) - 1))
+
+		if ((ans - negetive) > INT_MAX)
 			return 0;
+
 		if (negetive)
 			ans = -ans;
+
 		return (int)ans;
 	}
 } s;

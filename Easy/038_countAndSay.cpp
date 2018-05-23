@@ -4,35 +4,54 @@ using namespace std;
 class Solution
 {
 public:
+	// 法二:
 	string countAndSay(int n)
 	{
-		string ans = "1";
-		n--;
-		while (n--)
+		if (n == 1)
+			return "1";
+		string re = countAndSay(n - 1);
+		string result;
+		int count = 1;
+		for (int i = 0; i < re.size() - 1; i++)
 		{
-			ans = say(ans);
-		}
-		return ans;
-	}
-	string say(string s)
-	{
-		string ans = "";
-		char ch = s[0];
-		int n = 0;
-		for (int i = 0; i < s.size(); i++)
-		{
-			if (s[i] == ch)
-				n++;
+			if (re[i + 1] == re[i])
+				count++;
 			else
 			{
-				ans = ans + to_string(n) + ch;
-				ch = s[i];
-				n = 1;
+				result.push_back(count + '0');
+				result.push_back(re[i]);
+				count = 1;
 			}
 		}
-		ans = ans + to_string(n) + ch;
-		return ans;
+		result.push_back(count + '0');
+		result.push_back(re[re.size() - 1]);
+		return result;
 	}
+
+	// 法一:
+	//string countAndSay(int n)
+	//{
+	//	string ans = "1";
+	//	n--;
+	//	while (n--)
+	//	{
+	//		string str = "";
+	//		int cnt = 1;
+	//		for (int i = 0; i < ans.size() - 1; i++)
+	//		{
+	//			if (ans[i] == ans[i + 1])
+	//				cnt++;
+	//			else
+	//			{
+	//				str = str + (char)(cnt + '0') + ans[i];
+	//				cnt = 1;
+	//			}
+	//		}
+	//		ans = str + (char)(cnt + '0') + ans[ans.size() - 1];
+	//		cout << ans << endl;
+	//	}
+	//	return ans;
+	//}
 } s;
 
 int main()

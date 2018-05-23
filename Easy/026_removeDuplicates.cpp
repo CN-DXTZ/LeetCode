@@ -9,19 +9,10 @@ public:
 		int n = 0, temp;
 		if (nums.empty())
 			return 0;
-		else
-		{
-			temp = nums[0];
-			n++;
-		}
+		temp = nums[n++];
 		for (int i = 1; i < nums.size(); i++)
-		{
-			if (temp != nums[i])
-			{
-				temp = nums[i];
-				nums[n++] = temp;
-			}
-		}
+			if (nums[i] != nums[i-1])
+				nums[n++] = nums[i];
 		return n;
 	}
 } s;
