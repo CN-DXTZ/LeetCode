@@ -4,30 +4,25 @@ using namespace std;
 class Solution
 {
 public:
+	string str;
 	bool validPalindrome(string s)
 	{
-		return judge(s, 0, s.size() - 1, 0);
+		str = s;
+		return judge(0, s.size() - 1, 1);
 	}
-	bool judge(string s, int i, int j, int flag)
+	bool judge(int left, int right, int flag)
 	{
-		while (s[i] == s[j])
+		while (str[left] == str[right])
 		{
-			if (i >= j)
+			if (left >= right)
 				return true;
 			else
-				i++, j--;
+				left++, right--;
 		}
 		if (flag)
-			return false;
+			return judge(left + 1, right, 0) | judge(left, right - 1, 0);
 		else
-		{
-			bool ans = false;
-			if (s[i + 1] == s[j])
-				ans = ans || judge(s, i + 1, j, flag + 1);
-			if (s[i] == s[j - 1])
-				ans = ans || judge(s, i, j - 1, flag + 1);
-			return ans;
-		}
+			return false;
 	}
 } s;
 

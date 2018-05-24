@@ -13,12 +13,11 @@ public:
 		int t = abs(num);
 		while (t > 0)
 		{
-			str += '0' + t % 7;
+			str = (char)('0' + t % 7) + str;
 			t = t / 7;
 		}
 		if (num < 0)
-			str = str + "-";
-		reverse(str.begin(), str.end());
+			str = "-" + str;
 		return str;
 	}
 } s;

@@ -12,7 +12,8 @@ public:
 		int upper = pow(10, n) - 1;
 		for (int i = upper; ; i--) 
 		{
-			long long pld = buildPalindrome(i);
+			string t = to_string(i);
+			long long pld =stoll(t + string(t.rbegin(), t.rend())); 
 			for (long long j = upper; j*j >= pld; j--)
 			{
 				if (pld % j == 0)
@@ -22,12 +23,6 @@ public:
 			}
 		}
 		return -1;
-	}
-	long long buildPalindrome(int n) 
-	{
-		string s = to_string(n);
-		reverse(s.begin(), s.end());
-		return stoll(to_string(n) + s);
 	}
 } s;
 

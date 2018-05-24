@@ -1,26 +1,25 @@
 #include<iostream>
 #include<string> 
+#include<vector> 
 using namespace std;
-// 法二:
+// 法二:DP
 class Solution
 {
 public:
 	int countSubstrings(string  s)
 	{
-		int num = 0;
 		int sz = s.size();
-		bool dp[1000][1000] = { 0 };
+		vector<vector<int> > dp(sz, vector<int>(sz, 0));
+
+		int num = 0;
 		for (int i = 0; i < sz; i++) // 子串长度-1
 			for (int j = 0; j < (sz - i); j++) // 子串起点
-			{
-				dp[j][j + i] = (i < 2 || dp[j + 1][j + i - 1]) && (s[j] == s[j + i]);
-				if (dp[j][j + i])
+				if (dp[j][j + i] = (i < 2 || dp[j + 1][j + i - 1]) && (s[j] == s[j + i]))
 					num++;
-			}
 		return num;
 	}
 } s;
-// 法一:
+// 法一: DFS
 //class Solution
 //{
 //	string str;
