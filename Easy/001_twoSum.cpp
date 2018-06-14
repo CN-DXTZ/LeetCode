@@ -1,38 +1,60 @@
+/*******完结*******/
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<map>
 using namespace std;
 
 class Solution
 {
 public:
-	// 法二:O(N)
+	// 法三:一遍哈希表
 	vector<int> twoSum(vector<int>& nums, int target)
 	{
-		vector<int> v = nums;
-		sort(v.begin(), v.end());
-		int left = 0, right = v.size() - 1;
-		int sum = v[left] + v[right];
-		while (sum != target)
+		map<int, int> m;
+		for (int i = 0; i < nums.size(); i++)
 		{
-			if (sum < target)
-				left++;
+			int another = target - nums[i];
+			auto search = m.find(another);
+			if (search != m.end())
+			{
+				vector<int> v = { search->second,i };
+				return v;
+			}
 			else
-				right--;
-			sum = v[left] + v[right];
+				m.insert(make_pair(nums[i], i));
 		}
-
-		vector<int> ans;
-		for (int k = 0; k < nums.size(); k++)
-		{
-			if (ans.size() == 2)
-				break;
-			if (nums[k] == v[left] || nums[k] == v[right])
-				ans.push_back(k);
-		}
-		return ans;
 	}
-	// 法一:O(N^2)
+
+	// 法二:快排后遍历两遍，第一遍找到目标数对，第二遍找到其对应索引
+	//vector<int> twoSum(vector<int>& nums, int target)
+	//{
+	//	// 排序后两边夹找到目标数对
+	//	vector<int> v = nums;
+	//	sort(v.begin(), v.end());
+	//	int left = 0, right = v.size() - 1;
+	//	int sum = v[left] + v[right];
+	//	while (sum != target)
+	//	{
+	//		if (sum < target)
+	//			left++;
+	//		else
+	//			right--;
+	//		sum = v[left] + v[right];
+	//	}
+	//	// 找到目标数对对应索引
+	//	vector<int> ans;
+	//	for (int k = 0; k < nums.size(); k++)
+	//	{
+	//		if (ans.size() == 2)
+	//			break;
+	//		if (nums[k] == v[left] || nums[k] == v[right])
+	//			ans.push_back(k);
+	//	}
+	//	return ans;
+	//}
+
+	// 法一:暴力:O(n^2)
 	//vector<int> twoSum(vector<int>& nums, int target)
 	//{
 	//	int i = 0, j = 0;
