@@ -8,31 +8,31 @@ public:
 	vector<vector<int>> threeSum(vector<int>& nums)
 	{
 		vector<vector<int>> ans;
-		if (nums.size() == 0)
+		if (nums.empty())
 			return ans;
 
-		int n = nums.size();
 		sort(nums.begin(), nums.end());
+		int n = nums.size();
 		for (int i = 0; nums[i] <= 0 && i < n - 2; i++)
 		{
 			if (i && nums[i] == nums[i - 1])
 				continue;
 
-			// Á½±ßÇ÷½ü - Éý¼¶°æ 001_twoSum 
-			int tmpTarget = 0 - nums[i];
+			// Á½±ß¼Ð(Éý¼¶°æ001_twoSum )
+			int twoSum = 0 - nums[i];
 			int left = i + 1, right = nums.size() - 1;
 			while (left < right)
 			{
-				if (nums[left] + nums[right] == tmpTarget)
+				if (nums[left] + nums[right] == twoSum)
 				{
 					ans.push_back({ nums[i], nums[left], nums[right] });
 					while (left < right - 1 && nums[right] == nums[right - 1]) 
 						right--;
 					right--;
 				}
-				while (nums[left] + nums[right] < tmpTarget)
+				while (nums[left] + nums[right] < twoSum)
 					left++;
-				while (nums[left] + nums[right] > tmpTarget)
+				while (nums[left] + nums[right] > twoSum)
 					right--;
 			}
 		}

@@ -16,13 +16,12 @@ public:
 			ans = ans * 10 + x % 10;
 			x /= 10;
 		}
-
+		// Òç³ö
 		if ((ans - negetive) > INT_MAX)
 			return 0;
-
+		// »Ö¸´·ûºÅ
 		if (negetive)
 			ans = -ans;
-
 		return (int)ans;
 	}
 } s;
