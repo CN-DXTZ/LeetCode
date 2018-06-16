@@ -18,21 +18,23 @@ public:
 			if (i && nums[i] == nums[i - 1])
 				continue;
 
-			// Á½±ß¼Ð(Éý¼¶°æ001_twoSum )
-			int twoSum = 0 - nums[i];
+			// Á½±ß¼Ð(twoSum )
+			int twoSum = -nums[i];
 			int left = i + 1, right = nums.size() - 1;
 			while (left < right)
 			{
 				if (nums[left] + nums[right] == twoSum)
 				{
 					ans.push_back({ nums[i], nums[left], nums[right] });
-					while (left < right - 1 && nums[right] == nums[right - 1]) 
+					left++, right--;
+					while (left < right && nums[left] == nums[left - 1])
+						left++;
+					while (left < right && nums[right] == nums[right + 1])
 						right--;
-					right--;
 				}
-				while (nums[left] + nums[right] < twoSum)
+				while (left < right && nums[left] + nums[right] < twoSum)
 					left++;
-				while (nums[left] + nums[right] > twoSum)
+				while (left < right && nums[left] + nums[right] > twoSum)
 					right--;
 			}
 		}
@@ -48,7 +50,7 @@ int main()
 	for (int i = 0; i < ans.size(); i++)
 	{
 		for (int j = 0; j < ans[i].size(); j++)
-			cout << ans[i][j];
+			cout << ans[i][j]<<" ";
 		cout << endl;
 	}
 	system("pause");
