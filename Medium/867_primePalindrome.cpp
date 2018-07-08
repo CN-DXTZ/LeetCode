@@ -16,13 +16,19 @@ public:
 		if (n_s.size() == 1)
 		{
 			for (int i = 0;; i++)
-				if (primeList[i] > N)
+				if (primeList[i] >= N)
 					return primeList[i];
 		}
 		bool flag = n_s.size() % 2;
 		int max = pow(10, n_s.size() / 2), x = N / max;
 		if (flag)
-			return createPalindrome(max, x / 10, x % 10);
+		{
+			int mid = N / max % 10;
+			x /= 10;
+			if ((transpose(x) < (N % max)) && (++mid == 10))
+				x++, mid = 0;
+			return createPalindrome(max, x, mid);
+		}
 		else
 		{
 			if (transpose(x) < (N % max))
@@ -104,9 +110,12 @@ public:
 int main()
 {
 	cout << s.primePalindrome(0) << endl;
+	cout << s.primePalindrome(2) << endl;
 	cout << s.primePalindrome(6) << endl;
 	cout << s.primePalindrome(8) << endl;
 	cout << s.primePalindrome(13) << endl;
+	cout << s.primePalindrome(102) << endl;
+	cout << s.primePalindrome(192) << endl;
 	cout << s.primePalindrome(3073704) << endl;
 	cout << s.primePalindrome(100000000) << endl;
 	system("pause");
