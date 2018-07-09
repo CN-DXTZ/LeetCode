@@ -1,5 +1,6 @@
 #include<iostream>
-#include<vector> 
+#include<map>
+#include<set>
 using namespace std;
 
 struct TreeNode
@@ -13,27 +14,49 @@ struct TreeNode
 class Solution
 {
 public:
+	int deepLength = 0;
+	set<TreeNode *> deepNode;
+	map<TreeNode *, TreeNode *> father;
 	TreeNode * subtreeWithAllDeepest(TreeNode *root)
 	{
-		vector<vector<TreeNode*>> v;
-		vector<TreeNode*> temp = { root };
-		do
+		dfs(root, 1);
+		find();
+		return *(deepNode.begin());
+	}
+	// 找到最深节点的共同最深父节点
+	void find()
+	{
+		while (deepNode.size() != 1)
 		{
-			v.push_back(temp);
-			temp.clear();
-			for (int i = 0; i < v.back().size(); i++)
-			{
-				if (v.back()[i]->left)
-					temp.push_back(v.back()[i]->left);
-				if (v.back()[i]->right)
-					temp.push_back(v.back()[i]->right);
-			}
-		} while (temp.size());
+			set<TreeNode *> upper;
+			auto it = deepNode.begin();
+			while (it != deepNode.end())
+				upper.insert(father[*it++]);
+			deepNode = upper;
+		}
+	}
+	// 深搜找到最深节点并保存每个节点的父节点
+	void dfs(TreeNode *p, int depth)
+	{
+		if (depth > deepLength)
+		{
+			deepLength = depth;
+			deepNode.clear();
+			deepNode.insert(p);
+		}
+		else if (depth == deepLength)
+			deepNode.insert(p);
 
-		int n = v.size() - 2;
-		for (int i = 0; i < v[n].size(); i++)
-			if (v[n][i]->left|| v[n][i]->right)
-				return v[n][i];
+		if (p->left)
+		{
+			father.insert(make_pair(p->left, p));
+			dfs(p->left, depth + 1);
+		}
+		if (p->right)
+		{
+			father.insert(make_pair(p->right, p));
+			dfs(p->right, depth + 1);
+		}
 	}
 } s;
 
