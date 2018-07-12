@@ -11,8 +11,8 @@ class Solution
 public:
 	ListNode * mergeTwoLists(ListNode* l1, ListNode* l2)
 	{
-		ListNode ans(0);
-		ListNode *p = &ans;
+		ListNode *ans = new ListNode(0);
+		ListNode *p = ans;
 		int  v1, v2;
 		while (l1 || l2)
 		{
@@ -31,7 +31,7 @@ public:
 				p = p->next;
 			}
 		}
-		return ans.next;
+		return ans->next;
 	}
 } s;
 

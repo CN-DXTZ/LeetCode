@@ -12,8 +12,8 @@ class Solution
 public:
 	ListNode * mergeKLists(vector<ListNode*>& lists)
 	{
-		ListNode ans(0);
-		ListNode *p = &ans;
+		ListNode *ans = new ListNode(0);
+		ListNode *p = ans;
 		int i;
 		while (1)
 		{
@@ -40,10 +40,8 @@ public:
 			*minNodeAdress = (*minNodeAdress)->next;
 			p->next = new ListNode(minVal);
 			p = p->next;
-
-
 		}
-		return ans.next;
+		return ans->next;
 	}
 } s;
 
