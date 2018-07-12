@@ -1,5 +1,4 @@
 #include<iostream>
-#include<algorithm>
 using namespace std;
 struct ListNode {
 	int val;
@@ -8,6 +7,7 @@ struct ListNode {
 };
 class Solution
 {
+#define INT_MAX       2147483647
 public:
 	ListNode * mergeTwoLists(ListNode* l1, ListNode* l2)
 	{
