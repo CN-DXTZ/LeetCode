@@ -6,12 +6,11 @@ class Solution
 public:
 	int removeDuplicates(vector<int>& nums)
 	{
-		int n = 0, temp;
 		if (nums.empty())
 			return 0;
-		temp = nums[n++];
+		int n = 1;
 		for (int i = 1; i < nums.size(); i++)
-			if (nums[i] != nums[i-1])
+			if (nums[i] != nums[i - 1])
 				nums[n++] = nums[i];
 		return n;
 	}

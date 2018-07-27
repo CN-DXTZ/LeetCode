@@ -1,0 +1,20 @@
+#include<iostream>
+#include<vector> 
+using namespace std;
+
+class Solution
+{
+public:
+	vector<int> intersect(vector<int>& nums1, vector<int>& nums2)
+	{
+	}
+} s;
+
+int main()
+{
+	vector<int> v0 = { 1,2,2,1 };
+	vector<int> v1 = { 2,2 };
+	s.intersect(v0, v1);
+	system("pause");
+	return 0;
+}
