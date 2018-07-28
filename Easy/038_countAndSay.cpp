@@ -9,33 +9,32 @@ public:
 	{
 		if (n == 1)
 			return "1";
-		string re = countAndSay(n - 1);
-		string result;
-		int count = 1;
-		for (int i = 0; i < re.size() - 1; i++)
+		string previous = countAndSay(n - 1);
+		string ans;
+		int cnt = 1;
+		for (int i = 0; i < previous.size() - 1; i++)
 		{
-			if (re[i + 1] == re[i])
-				count++;
+			if (previous[i + 1] == previous[i])
+				cnt++;
 			else
 			{
-				result.push_back(count + '0');
-				result.push_back(re[i]);
-				count = 1;
+				ans.push_back(cnt + '0');
+				ans.push_back(previous[i]);
+				cnt = 1;
 			}
 		}
-		result.push_back(count + '0');
-		result.push_back(re[re.size() - 1]);
-		return result;
+		ans.push_back(cnt + '0');
+		ans.push_back(previous[previous.size() - 1]);
+		return ans;
 	}
 
 	// ·¨Ò»:
 	//string countAndSay(int n)
 	//{
 	//	string ans = "1";
-	//	n--;
-	//	while (n--)
+	//	while (--n)
 	//	{
-	//		string str = "";
+	//		string temp;
 	//		int cnt = 1;
 	//		for (int i = 0; i < ans.size() - 1; i++)
 	//		{
@@ -43,12 +42,15 @@ public:
 	//				cnt++;
 	//			else
 	//			{
-	//				str = str + (char)(cnt + '0') + ans[i];
+	//				temp.push_back(cnt + '0');
+	//				temp.push_back(ans[i]);
 	//				cnt = 1;
 	//			}
 	//		}
-	//		ans = str + (char)(cnt + '0') + ans[ans.size() - 1];
-	//		cout << ans << endl;
+	//		temp.push_back(cnt + '0');
+	//		temp.push_back(ans[ans.size() - 1]);
+	//		ans = temp;
+	//		//cout << ans << endl;
 	//	}
 	//	return ans;
 	//}

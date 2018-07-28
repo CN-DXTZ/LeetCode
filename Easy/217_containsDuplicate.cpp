@@ -10,11 +10,8 @@ public:
 	{
 		unordered_map<int, int> dict;
 		for (int i : nums)
-		{
-			dict[i]++;
-			if (dict[i] > 1)
+			if (dict[i]++)
 				return true;
-		}
 		return false;
 	}
 } s;
