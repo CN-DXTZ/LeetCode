@@ -25,7 +25,7 @@ int main()
 
 	ListNode *ans = s.reverseList(head);
 
-	while (ans != NULL)
+	while (ans != NULL) 
 	{
 		cout << ans->val << endl;
 		ans = ans->next;
