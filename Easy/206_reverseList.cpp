@@ -9,9 +9,45 @@ struct ListNode {
 class Solution
 {
 public:
+	// 法一:迭代
+	//ListNode * reverseList(ListNode* head)
+	//{
+	//	ListNode *Before = NULL, *Next = NULL;
+	//	while (head)
+	//	{
+	//		Next = head->next;
+	//		head->next = Before;
+
+	//		Before = head;
+	//		head = Next;
+	//	}
+	//	return Before;
+	//}
+
+	// 法二:递归1(完全由法一改写)
+	//ListNode * Before = NULL, *Next = NULL;
+	//ListNode * reverseList(ListNode* head)
+	//{
+	//	if (!head)
+	//		return Before;
+
+	//	Next = head->next;
+	//	head->next = Before;
+
+	//	Before = head;
+	//	return reverseList(Next);
+	//}
+
+	// 法三:递归2	★递归调用的次序很重要
 	ListNode * reverseList(ListNode* head)
 	{
+		if (!head || !(head->next))
+			return head;
 
+		ListNode* node = reverseList(head->next);
+		head->next->next = head;
+		head->next = NULL;
+		return node;
 	}
 } s;
 
@@ -25,7 +61,7 @@ int main()
 
 	ListNode *ans = s.reverseList(head);
 
-	while (ans != NULL) 
+	while (ans != NULL)
 	{
 		cout << ans->val << endl;
 		ans = ans->next;

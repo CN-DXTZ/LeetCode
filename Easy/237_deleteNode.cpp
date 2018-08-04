@@ -11,13 +11,9 @@ class Solution
 public:
 	void deleteNode(ListNode* node)
 	{
-		// 正常方法为将上一个节点next所存地址更换为下一个节点的地址,不过受该函数参数限制
-		// node为所需删除的节点地址,即上一个节点next所保存的地址，但无法更改上一个节点next的内容
-		// 故删除该节点为将node地址所指向的节点内容替换为下一个节点的节点内容
-		//auto a = node->next;
-		//auto b = *node;
-		//auto c = *(node->next);
-		//auto d = (*node).next;
+		// 正常删除节点的方法为:将上一节点next所存地址更换为下一节点的地址,
+		// 本函数参数node为所需删除节点的地址,故无法改变更改上一节点(中next)的内容
+		// 故本函数为将node地址所指向的节点内容整个替换为下一个节点的节点内容
 		*node = *(node->next);
 	}
 } s;

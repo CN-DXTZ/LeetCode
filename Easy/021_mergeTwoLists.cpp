@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 struct ListNode {
 	int val;
@@ -7,32 +8,57 @@ struct ListNode {
 };
 class Solution
 {
-#define INT_MAX       2147483647
 public:
-	ListNode * mergeTwoLists(ListNode* l1, ListNode* l2)
+	// 法二:时间O(N),空间O(1)
+	ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
 	{
-		ListNode *ans = new ListNode(0);
-		ListNode *p = ans;
-		int  v1, v2;
-		while (l1 || l2)
+		ListNode head(0);
+		ListNode *p = &head;
+
+		while (l1 && l2)
 		{
-			v1 = l1 ? l1->val : INT_MAX;
-			v2 = l2 ? l2->val : INT_MAX;
-			if (v1 <= v2)
+			if (l1->val < l2->val)
 			{
-				l1 = l1 ? l1->next : NULL;
-				p->next = new ListNode(v1);
-				p = p->next;
+				p->next = l1;
+				l1 = l1->next;
 			}
 			else
 			{
-				l2 = l2 ? l2->next : NULL;
-				p->next = new ListNode(v2);
-				p = p->next;
+				p->next = l2;
+				l2 = l2->next;
 			}
+			p = p->next;
 		}
-		return ans->next;
+		// 有一条链合并完后, 其余部分直接指向另外链的子链的头节点即可
+		p->next = l1 ? l1 : l2;
+		return head.next;
 	}
+
+	// 法一:时间O(N),空间O(N)
+	//ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
+	//{
+	//	ListNode *ans = new ListNode(0);
+	//	ListNode *p = ans;
+	//	int  v1, v2;
+	//	while (l1 || l2)
+	//	{
+	//		v1 = l1 ? l1->val : INT_MAX;
+	//		v2 = l2 ? l2->val : INT_MAX;
+	//		if (v1 <= v2)
+	//		{
+	//			l1 = l1 ? l1->next : NULL;
+	//			p->next = new ListNode(v1);
+	//			p = p->next;
+	//		}
+	//		else
+	//		{
+	//			l2 = l2 ? l2->next : NULL;
+	//			p->next = new ListNode(v2);
+	//			p = p->next;
+	//		}
+	//	}
+	//	return ans->next;
+	//}
 } s;
 
 int main()

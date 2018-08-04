@@ -10,47 +10,44 @@ struct ListNode {
 class Solution
 {
 public:
-	// 法二:
-	//ListNode * removeNthFromEnd(ListNode* head, int n)
-	//{
-	//	ListNode** p_left = &head;// 以防删除头节点
-	//	ListNode*p_right = head;
-	//	// 左右节点相差n
-	//	for (int i = 1; i < n; ++i)
-	//	{
-	//		p_right = p_right->next;
-	//	}
-	//	// 左右节点同时步进，直至右节点至终点
-	//	while (p_right->next)
-	//	{
-	//		p_left = &((*p_left)->next);
-	//		p_right = p_right->next;
-	//	}
-	//	*p_left = (*p_left)->next;
-	//	return head;
-	//}
-
-	// 法一:
+	// 法二:时间O(N),空间O(1)
 	ListNode * removeNthFromEnd(ListNode* head, int n)
 	{
-		vector<ListNode*> temp;
-		ListNode* p = head;
-		while (true)
+		ListNode** slow = &head;// 以防删除头节点
+		ListNode*fast = head;
+		// 使快慢节点间隔为n
+		while (--n)
+			fast = fast->next;
+		// 快慢节点同时步进，直至快节点至终点
+		while (fast->next)
 		{
-			temp.push_back(p);
-			if (!(p = p->next))
-				break;
+			fast = fast->next;
+			slow = &((*slow)->next);
 		}
-
-		int size = temp.size();
-		ListNode* next = temp[size - n]->next;
-		// 边界:删除第一个
-		if (size == n)
-			return next;
-		else
-			temp[size - n - 1]->next = next;
+		*slow = (*slow)->next;
 		return head;
 	}
+
+	// 法一:时间O(N),空间O(N)
+	//ListNode * removeNthFromEnd(ListNode* head, int n)
+	//{
+	//	vector<ListNode*> temp;
+	//	ListNode* p = head;
+	//	while (p)
+	//	{
+	//		temp.push_back(p);
+	//		p = p->next;
+	//	}
+
+	//	int size = temp.size();
+	//	ListNode* next = temp[size - n]->next;
+	//	// 边界:删除第一个
+	//	if (size == n)
+	//		return next;
+	//	else
+	//		temp[size - n - 1]->next = next;
+	//	return head;
+	//}
 } s;
 
 int main()
@@ -58,7 +55,7 @@ int main()
 	ListNode *l1 = new ListNode(1);
 	l1->next = new ListNode(2);
 	l1->next->next = new ListNode(3);
-	ListNode *ans = s.removeNthFromEnd(l1, 1);
+	ListNode *ans = s.removeNthFromEnd(l1, 3);
 
 	while (ans != NULL)
 	{
