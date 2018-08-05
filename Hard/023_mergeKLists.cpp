@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 #include<vector>
 using namespace std;
 struct ListNode {
@@ -8,41 +9,71 @@ struct ListNode {
 };
 class Solution
 {
-#define INT_MAX       2147483647
 public:
-	ListNode * mergeKLists(vector<ListNode*>& lists)
+	// 法二: 分治:两两合并 - 时间O(NlogK),空间O(1)
+	ListNode * mergeKLists(vector<ListNode *>& lists)
 	{
-		ListNode *ans = new ListNode(0);
-		ListNode *p = ans;
-		int i;
-		while (1)
+		if (lists.empty()) 
+			return NULL;
+		
+		while (lists.size() > 1) 
 		{
-			// 判断结束
-			for (i = 0; i < lists.size(); i++)
-				if (lists[i])
-					break;
-			if (i == lists.size())
-				break;
-
-			int minVal = INT_MAX;
-			ListNode** minNodeAdress = NULL;
-			for (i = 0; i < lists.size(); i++)
-			{
-				if (!lists[i])
-					continue;
-				if (lists[i]->val < minVal)
-				{
-					minVal = lists[i]->val;
-					minNodeAdress = &lists[i];
-				}
-			}
-
-			*minNodeAdress = (*minNodeAdress)->next;
-			p->next = new ListNode(minVal);
-			p = p->next;
+			lists.push_back(mergeTwoLists(lists[0], lists[1]));
+			lists.erase(lists.begin());
+			lists.erase(lists.begin());
 		}
-		return ans->next;
+		return lists.front();
 	}
+	ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
+	{
+		ListNode *HEAD = new ListNode(0);
+		ListNode *p = HEAD;
+		while (l1 && l2)
+		{
+			if (l1->val < l2->val)
+			{
+				p = p->next = l1;
+				l1 = l1->next;
+			}
+			else
+			{
+				p = p->next = l2;
+				l2 = l2->next;
+			}
+		}
+		p->next = l1 ? l1 : l2;
+		return HEAD->next;
+	}
+
+	// 法一: 遍历每个链表合并 - 时间O(NK),空间O(1)
+	//ListNode * mergeKLists(vector<ListNode *>& lists)
+	//{
+	//	ListNode *HEAD = new ListNode(0);
+	//	ListNode *p = HEAD;
+
+	//	int cnt = 0, n = lists.size();
+	//	while (cnt < n)
+	//	{
+	//		cnt = 1;
+	//		int min_Val = INT_MAX, min_Idx = -1;
+	//		for (int i = 0; i < n; i++)
+	//		{
+	//			if (!lists[i])
+	//				cnt++;
+	//			else if (lists[i]->val < min_Val)
+	//			{
+	//				min_Idx = i;
+	//				min_Val = lists[i]->val;
+	//			}
+	//		}
+	//		if (min_Idx == -1)
+	//			break;
+
+	//		p = p->next = lists[min_Idx];
+	//		lists[min_Idx] = (lists[min_Idx])->next;
+	//	}
+	//	return HEAD->next;
+	//}
 } s;
 
 int main()
@@ -56,6 +87,7 @@ int main()
 	ListNode *l3 = new ListNode(2);
 	l3->next = new ListNode(6);
 	vector<ListNode*> v = { l1,l2,l3 };
+	vector<ListNode*> v2 = { NULL,NULL };
 
 	ListNode *ans = s.mergeKLists(v);
 

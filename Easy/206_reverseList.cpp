@@ -9,20 +9,32 @@ struct ListNode {
 class Solution
 {
 public:
-	// 法一:迭代
+	// 法三:递归2	★递归调用的次序很重要
 	//ListNode * reverseList(ListNode* head)
 	//{
-	//	ListNode *Before = NULL, *Next = NULL;
-	//	while (head)
-	//	{
-	//		Next = head->next;
-	//		head->next = Before;
+	//	if (!head || !(head->next))
+	//		return head;
 
-	//		Before = head;
-	//		head = Next;
-	//	}
-	//	return Before;
+	//	ListNode* node = reverseList(head->next);
+	//	head->next->next = head;
+	//	head->next = NULL;
+	//	return node;
 	//}
+
+	// 法一:迭代
+	ListNode * reverseList(ListNode* head)
+	{
+		ListNode *Before = NULL, *Next = NULL;
+		while (head)
+		{
+			Next = head->next;
+			head->next = Before;
+
+			Before = head;
+			head = Next;
+		}
+		return Before;
+	}
 
 	// 法二:递归1(完全由法一改写)
 	//ListNode * Before = NULL, *Next = NULL;
@@ -37,18 +49,6 @@ public:
 	//	Before = head;
 	//	return reverseList(Next);
 	//}
-
-	// 法三:递归2	★递归调用的次序很重要
-	ListNode * reverseList(ListNode* head)
-	{
-		if (!head || !(head->next))
-			return head;
-
-		ListNode* node = reverseList(head->next);
-		head->next->next = head;
-		head->next = NULL;
-		return node;
-	}
 } s;
 
 int main()

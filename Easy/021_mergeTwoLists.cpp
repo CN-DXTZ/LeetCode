@@ -12,33 +12,32 @@ public:
 	// 法二:时间O(N),空间O(1)
 	ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
 	{
-		ListNode head(0);
-		ListNode *p = &head;
+		ListNode *HEAD = new ListNode(0);
+		ListNode *p = HEAD;
 
 		while (l1 && l2)
 		{
 			if (l1->val < l2->val)
 			{
-				p->next = l1;
+				p = p->next = l1;
 				l1 = l1->next;
 			}
 			else
 			{
-				p->next = l2;
+				p = p->next = l2;
 				l2 = l2->next;
 			}
-			p = p->next;
 		}
 		// 有一条链合并完后, 其余部分直接指向另外链的子链的头节点即可
 		p->next = l1 ? l1 : l2;
-		return head.next;
+		return HEAD->next;
 	}
 
 	// 法一:时间O(N),空间O(N)
 	//ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
 	//{
-	//	ListNode *ans = new ListNode(0);
-	//	ListNode *p = ans;
+	//	ListNode *HEAD = new ListNode(0);
+	//	ListNode *p = HEAD;
 	//	int  v1, v2;
 	//	while (l1 || l2)
 	//	{
@@ -57,7 +56,7 @@ public:
 	//			p = p->next;
 	//		}
 	//	}
-	//	return ans->next;
+	//	return HEAD->next;
 	//}
 } s;
 

@@ -10,26 +10,20 @@ class Solution
 public:
 	ListNode * swapPairs(ListNode* head)
 	{
-		ListNode *ans = new ListNode(0);
-		ans->next = head;
+		ListNode *HEAD = new ListNode(0);
+		HEAD->next = head;
 
-		ListNode *p = ans, *t1, *t2;
-		while (p->next)
+		ListNode *p = HEAD, *t1, *t2;
+		while ((t1 = p->next) && (t1->next))
 		{
-			t1 = p->next;
-			if (t1->next)
-			{
-				t2 = t1->next;
-
-				t1->next = t2->next;
-				t2->next = t1;
-				p->next = t2;
-			}
-			else
-				break;
+			t2 = t1->next;
+			// ½»»»
+			t1->next = t2->next;
+			t2->next = t1;
+			p->next = t2;
 			p = t1;
 		}
-		return ans->next;
+		return HEAD->next;
 	}
 } s;
 
