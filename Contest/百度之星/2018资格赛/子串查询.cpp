@@ -21,7 +21,7 @@ int main()
 		scanf("%d%d", &n, &q);
 		scanf("%s", s + 1); // 字符序号从1开始
 
-		// 前缀和打表
+							// 前缀和打表
 		for (int i = 1; s[i]; i++)
 		{
 			for (int j = 0; j < 26; j++)

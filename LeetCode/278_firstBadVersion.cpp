@@ -4,31 +4,29 @@
 using namespace std;
 bool isBadVersion(int version)
 {
-	return version >= 1;
+	return version >= 7;
 }
 class Solution {
 public:
-	// 二分
+	// 分治
 	int firstBadVersion(int n)
 	{
 		int min = 1, max = n, mid;
-		while (abs(max - min) > 1)
+		while (max > min)
 		{
 			mid = (max - min) / 2 + min;
 			if (isBadVersion(mid))
 				max = mid;
 			else
-				min = mid;
+				min = mid + 1;
 		}
-		if (isBadVersion(min))
-			return min;
 		return max;
 	}
 } s;
 
 int main()
 {
-	cout << s.firstBadVersion(2) << endl;
+	cout << s.firstBadVersion(12) << endl;
 	system("pause");
 	return 0;
 }
