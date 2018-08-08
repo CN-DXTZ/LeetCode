@@ -2,10 +2,6 @@
 #include<algorithm>
 #include<cmath>
 using namespace std;
-bool isBadVersion(int version)
-{
-	return version >= 7;
-}
 class Solution {
 public:
 	// ·ÖÖÎ
@@ -21,6 +17,11 @@ public:
 				min = mid + 1;
 		}
 		return max;
+	}
+
+	bool isBadVersion(int version)
+	{
+		return version >= 7;
 	}
 } s;
 
