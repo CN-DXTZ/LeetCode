@@ -18,7 +18,6 @@ public:
 		}
 		return max;
 	}
-
 	bool isBadVersion(int version)
 	{
 		return version >= 7;
