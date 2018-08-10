@@ -1,5 +1,3 @@
-## 数组：
-
 ## 字符串：
 
 ## 链表：
@@ -17,12 +15,12 @@
  - [023_mergeKLists](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/023_mergeKLists.cpp)
  - [025_reverseKGroup](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/025_reverseKGroup.cpp)
 
-
 ## 二叉树：
+### Easy
+ - [104_maxDepth](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/104_maxDepth.cpp)
+### Medium
+ - [098_isValidBST](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/098_isValidBST.cpp)
 
-## 排序：
-
-## 搜索：
 
 ## 动态规划：
 ### Easy
