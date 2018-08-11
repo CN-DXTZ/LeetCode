@@ -11,24 +11,40 @@ struct TreeNode {
 class Solution
 {
 public:
-	// 法一: 顺序深搜应升序
-	int before = INT_MIN;
-	bool isValidBST(TreeNode* root)
-	{
-		before = INT_MIN;
-		return is_Valid_BST(root);
+	// 法二: 确定每个节点的极值节点并遍历
+	bool isValidBST(TreeNode* root) {
+		return is_Valid_BST(root, NULL, NULL);
 	}
-	bool is_Valid_BST(TreeNode* root)
+
+	bool is_Valid_BST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 	{
-		if (!root)
+		if (!root) 
 			return true;
-		if (!is_Valid_BST(root->left))
+		if ((minNode && root->val <= minNode->val) || (maxNode && root->val >= maxNode->val))
 			return false;
-		if (root->val <= before)
-			return false;
-		before = root->val;
-		return is_Valid_BST(root->right);
+		return is_Valid_BST(root->left, minNode, root) && is_Valid_BST(root->right, root, maxNode);
 	}
+	// 法一: 顺序深搜遍历应为升序排列
+	//TreeNode * prev = NULL;
+	//bool isValidBST(TreeNode* root)
+	//{
+	//	prev = NULL;
+	//	return is_Valid_BST(root);
+	//}
+	//bool is_Valid_BST(TreeNode* node)
+	//{
+	//	if (!node)
+	//		return true;
+	//	// 先递归访问至最深左节点
+	//	if (!is_Valid_BST(node->left))
+	//		return false;
+	//	// 再判断是否升序
+	//	if (prev  && node->val <= prev->val)
+	//		return false;
+	//	// 最后更新当前节点为前一个节点并访问右节点
+	//	prev = node;
+	//	return is_Valid_BST(node->right);
+	//}
 } s;
 
 int main()
@@ -50,12 +66,13 @@ int main()
 	T3->right = new TreeNode(4);
 	T3->right->left = new TreeNode(3);
 	T3->right->right = new TreeNode(6);
-	TreeNode *T4 = new TreeNode(0);
-	//cout << s.isValidBST(T1) << endl;
-	//cout << s.isValidBST(T2) << endl;
+	TreeNode *T4 = new TreeNode(1);
+	T4->left = new TreeNode(1);
+	cout << s.isValidBST(T1) << endl;
+	cout << s.isValidBST(T2) << endl;
 	cout << s.isValidBST(T3) << endl;
-	//cout << s.isValidBST(T4) << endl;
-	//cout << s.isValidBST(NULL) << endl;
+	cout << s.isValidBST(T4) << endl;
+	cout << s.isValidBST(NULL) << endl;
 	system("pause");
 	return 0;
 }
