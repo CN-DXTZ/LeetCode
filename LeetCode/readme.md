@@ -24,10 +24,19 @@
  - [098_isValidBST](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/098_isValidBST.cpp)
  - [102_levelOrder](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/102_levelOrder.cpp)
 
-
+326_isPowerOfThree
 ## 动态规划：
 ### Easy
  - [053_maxSubArray](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/053_maxSubArray.cpp)
  - [070_climbStairs](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/070_climbStairs.cpp)
  - [121_maxProfit](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/121_maxProfit.cpp)
  - [198_rob](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/198_rob.cpp)
+
+
+## 数学：
+### Easy
+ - [204_countPrimes](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/204_countPrimes.cpp)
+ - [326_isPowerOfThree](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/326_isPowerOfThree.cpp)
+ - [342_isPowerOfFour](https://github.com/CN-DXTZ/Online-Judge/blob/master/LeetCode/342_isPowerOfFour.cpp)
+
+
