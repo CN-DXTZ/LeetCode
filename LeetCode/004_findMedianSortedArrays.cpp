@@ -10,19 +10,19 @@ public:
 		int n = nums1.size(), m = nums2.size();
 		if (n == 0)
 			return (nums2[m / 2] + nums2[(m - 1) / 2]) / 2.0;
-		if (n > m)   // ±£Ö¤nums1Îª¶ÌÊı×é
+		if (n > m)   // ä¿è¯nums1ä¸ºçŸ­æ•°ç»„
 			return findMedianSortedArrays(nums2, nums1);
 
 		int mid_idx1, mid_idx2, n_mid_idx = (n + m + 1) / 2 - 2;
 		int L1 = 0, R1 = n - 1;
-		// È·¶¨ÖĞÎ»ÊıÎ»ÖÃ×ó·¶Î§
+		// ç¡®å®šä¸­ä½æ•°ä½ç½®å·¦èŒƒå›´
 		while (R1 - L1 > 1)
 		{
-			// ½öĞè¶Ô¶ÌÊı×é½øĞĞ¶ş·Ö±ê¼Ç£¬Ôò³¤Êı×é±ê¼ÇÎ»ÖÃ¿ÉÍÆÖª
+			// ä»…éœ€å¯¹çŸ­æ•°ç»„è¿›è¡ŒäºŒåˆ†æ ‡è®°ï¼Œåˆ™é•¿æ•°ç»„æ ‡è®°ä½ç½®å¯æ¨çŸ¥
 			mid_idx1 = (L1 + R1) / 2;
 			mid_idx2 = n_mid_idx - mid_idx1;
 
-			// ¸ù¾İÁ½Êı×é±ê¼ÇµÄÖµµÄ´óĞ¡,¶¯Ì¬µ÷Õû±ê¼ÇÎ»ÖÃ
+			// æ ¹æ®ä¸¤æ•°ç»„æ ‡è®°çš„å€¼çš„å¤§å°,åŠ¨æ€è°ƒæ•´æ ‡è®°ä½ç½®
 			if (nums1[mid_idx1] == nums2[mid_idx2])
 				break;
 			else if (nums1[mid_idx1] < nums2[mid_idx2])
@@ -31,19 +31,19 @@ public:
 				R1 = mid_idx1;
 		}
 
-		// È·¶¨ÖĞÎ»ÊıÎ»ÖÃ·¶Î§
+		// ç¡®å®šä¸­ä½æ•°ä½ç½®èŒƒå›´
 		int L2 = max(n_mid_idx - R1, 0);
 		int n_diff = n_mid_idx - L1 - L2;
 		int t1, t2;
 		vector<int> mid;
-		// °´Ë³ĞòÌí¼Ó
+		// æŒ‰é¡ºåºæ·»åŠ 
 		for (int i = 0; i <= n_diff + 2; i++)
 		{
 			t1 = (L1 < n) ? nums1[L1] : INT_MAX;
 			t2 = (L2 < m) ? nums2[L2] : INT_MAX;
 			mid.push_back((t1 <= t2 ? nums1[L1++] : nums2[L2++]));
 		}
-		// È·¶¨ÖĞÎ»Êı
+		// ç¡®å®šä¸­ä½æ•°
 		if ((m + n) % 2)
 			return *(mid.end() - 2);
 		else

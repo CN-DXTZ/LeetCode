@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution {
 public:
-	// 法三: 
+	// 娉曚笁: 
 	int const Max3PowerInt = 1162261467; // =3^19 (3^20 = 3486784401 > INT_MAX)
 	bool isPowerOfThree(int n)
 	{
@@ -12,7 +12,7 @@ public:
 		return Max3PowerInt % n == 0;
 	}
 
-	// 法二: 循环
+	// 娉曚簩: 寰幆
 	//bool isPowerOfThree(int n)
 	//{
 	//	if (n > 1)
@@ -21,7 +21,7 @@ public:
 	//	return n == 1;
 	//}
 
-	// 法一: 递归
+	// 娉曚竴: 閫掑綊
 	//bool isPowerOfThree(int n)
 	//{
 	//	if (n > 1)

@@ -9,7 +9,7 @@ struct ListNode {
 class Solution
 {
 public:
-	// Ê±¼äO(n), ¿Õ¼äO(1)
+	// æ—¶é—´O(n), ç©ºé—´O(1)
 	bool isPalindrome(ListNode* head)
 	{
 		if (!head || !(head->next))
@@ -17,31 +17,31 @@ public:
 
 		ListNode *slow = head, *fast = head;
 		ListNode *Before = NULL, *Next = NULL;
-		// slow±ê¼ÇÇ°°ë²¿·Ö, fast±ê¼Çºó°ë²¿·Ö
+		// slowæ ‡è®°å‰åŠéƒ¨åˆ†, fastæ ‡è®°åŽåŠéƒ¨åˆ†
 		while (fast->next && fast->next->next)
 		{
 			fast = fast->next->next;
 
-			// ·´×ªÇ°°ë²¿·Ö
+			// åè½¬å‰åŠéƒ¨åˆ†
 			Next = slow->next;
 			slow->next = Before;
 			Before = slow;
 			slow = Next;
 		}
 
-		// È·¶¨Ç°ºóÁ½°ë²¿·ÖµÄÆðµã
-		if (fast->next)	// Å¼Êý¸ö½Úµã
+		// ç¡®å®šå‰åŽä¸¤åŠéƒ¨åˆ†çš„èµ·ç‚¹
+		if (fast->next)	// å¶æ•°ä¸ªèŠ‚ç‚¹
 		{
 			fast = slow->next;
 			slow->next = Before;
 		}
-		else			// ÆæÊý¸ö½Úµã
+		else			// å¥‡æ•°ä¸ªèŠ‚ç‚¹
 		{
 			fast = slow->next;
 			slow = Before;
 		}
 
-		// µü´úÅÐ¶ÏÊÇ·ñ»ØÎÄ
+		// è¿­ä»£åˆ¤æ–­æ˜¯å¦å›žæ–‡
 		while (slow)
 		{
 			if (slow->val != fast->val)

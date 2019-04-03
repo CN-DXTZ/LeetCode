@@ -36,7 +36,7 @@ public:
 			return createPalindrome(max, x);
 		}
 	}
-	// Éú³ÉÆæÎ»Êı»ØÎÄ
+	// ç”Ÿæˆå¥‡ä½æ•°å›æ–‡
 	int createPalindrome(int max, int x, int mid)
 	{
 		int temp = (x * 10 + mid)*max + transpose(x), i;
@@ -51,7 +51,7 @@ public:
 		}
 		return createPalindrome(max, x, mid);
 	}
-	// Éú³ÉÅ¼Î»Êı»ØÎÄ
+	// ç”Ÿæˆå¶ä½æ•°å›æ–‡
 	int createPalindrome(int max, int x)
 	{
 		int temp = x * max + transpose(x), i;
@@ -62,7 +62,7 @@ public:
 		else
 			return createPalindrome(max, max / 10, 0);
 	}
-	// ×ªÖÃ
+	// è½¬ç½®
 	int transpose(int x)
 	{
 		int ans = 0;
@@ -73,7 +73,7 @@ public:
 		}
 		return ans;
 	}
-	// ÅĞ¶ÏËØÊı
+	// åˆ¤æ–­ç´ æ•°
 	int isPrime(int x)
 	{
 		int i = 0;
@@ -86,7 +86,7 @@ public:
 			return x;
 		return 0;
 	}
-	// ËØÊı´ò±í
+	// ç´ æ•°æ‰“è¡¨
 	void listPrime()
 	{
 		for (int i = 2; i < 102; i++)

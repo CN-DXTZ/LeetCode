@@ -7,7 +7,7 @@ using namespace std;
 class Solution
 {
 public:
-	// ·¨¶ş:
+	// æ³•äºŒ:
 	vector<int> intersect(vector<int>& nums1, vector<int>& nums2)
 	{
 		sort(nums1.begin(), nums1.end());
@@ -16,7 +16,7 @@ public:
 		int n1 = nums1.size(), n2 = nums2.size();
 		int p1 = 0, p2 = 0;
 		vector<int> ans;
-		// Ò»¸ö¼¯ºÏ±éÀúÍêÔò²»ÔÙÓĞ½»¼¯£¬ÍË³öÑ­»·£¬¹Ê²»»áÔ½½ç
+		// ä¸€ä¸ªé›†åˆéå†å®Œåˆ™ä¸å†æœ‰äº¤é›†ï¼Œé€€å‡ºå¾ªç¯ï¼Œæ•…ä¸ä¼šè¶Šç•Œ
 		while (p1 < n1 && p2 < n2)
 		{
 			if (nums1[p1] == nums2[p2])
@@ -32,7 +32,7 @@ public:
 		return ans;
 	}
 
-	// ·¨Ò»:
+	// æ³•ä¸€:
 	//vector<int> intersect(vector<int>& nums1, vector<int>& nums2)
 	//{
 	//	unordered_map<int, int> dict;

@@ -15,11 +15,11 @@ public:
 			if (i && nums[i] == nums[i - 1])
 				continue;
 			int abs_diff = i ? abs(close_sum - target) : INT_MAX;
-			// µ±ÈýÊýºÍ´óÓÚ×î´ó¿ÉÄÜºÍÊ±ÍË³ö
+			// å½“ä¸‰æ•°å’Œå¤§äºŽæœ€å¤§å¯èƒ½å’Œæ—¶é€€å‡º
 			if (i && (nums[i] + nums[i + 1] + nums[i + 2]) >= (target + abs_diff))
 				break;
 
-			// Á½±ß¼Ð(twoSumClosest)
+			// ä¸¤è¾¹å¤¹(twoSumClosest)
 			int twoSum = target - nums[i];
 			int left = i + 1, right = nums.size() - 1;
 			while (left < right)

@@ -16,10 +16,10 @@ public:
 			ans = ans * 10 + x % 10;
 			x /= 10;
 		}
-		// Òç³ö
+		// æº¢å‡º
 		if ((ans - negetive) > INT_MAX)
 			return 0;
-		// »Ö¸´·ûºÅ
+		// æ¢å¤ç¬¦å·
 		if (negetive)
 			ans = -ans;
 		return (int)ans;

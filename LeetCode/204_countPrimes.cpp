@@ -4,10 +4,10 @@
 #include<ctime>
 using namespace std;
 
-// ÖÊÊý
+// è´¨æ•°
 class Solution {
 public:
-	// ·¨¶þ: ´ò±í¡ª¡ªÒÀ´Î½«ÖÊÊýµÄ±¶ÊýÉ¸³ý 
+	// æ³•äºŒ: æ‰“è¡¨â€”â€”ä¾æ¬¡å°†è´¨æ•°çš„å€æ•°ç­›é™¤ 
 	int countPrimes(int n)
 	{
 		if (n <= 2)
@@ -29,7 +29,7 @@ public:
 		return sum;
 	}
 
-	// ·¨Ò»: ÒÀ´ÎÅÐ¶ÏÖÊÊý¡ª¡ª¿´ÄÜ·ñ±»Ð¡ÓÚÆäÆ½·½¸ùµÄÖÊÊýÕû³ý
+	// æ³•ä¸€: ä¾æ¬¡åˆ¤æ–­è´¨æ•°â€”â€”çœ‹èƒ½å¦è¢«å°äºŽå…¶å¹³æ–¹æ ¹çš„è´¨æ•°æ•´é™¤
 	//int countPrimes(int n)
 	//{
 	//	if (n <= 2)

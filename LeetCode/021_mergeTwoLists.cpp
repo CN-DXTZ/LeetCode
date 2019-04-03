@@ -9,7 +9,7 @@ struct ListNode {
 class Solution
 {
 public:
-	// 法二:时间O(N),空间O(1)
+	// 娉曚簩:鏃堕棿O(N),绌洪棿O(1)
 	ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
 	{
 		ListNode *HEAD = new ListNode(0);
@@ -28,12 +28,12 @@ public:
 				l2 = l2->next;
 			}
 		}
-		// 有一条链合并完后, 其余部分直接指向另外链的子链的头节点即可
+		// 鏈変竴鏉￠摼鍚堝苟瀹屽悗, 鍏朵綑閮ㄥ垎鐩存帴鎸囧悜鍙﹀閾剧殑瀛愰摼鐨勫ご鑺傜偣鍗冲彲
 		p->next = l1 ? l1 : l2;
 		return HEAD->next;
 	}
 
-	// 法一:时间O(N),空间O(N)
+	// 娉曚竴:鏃堕棿O(N),绌洪棿O(N)
 	//ListNode * mergeTwoLists(ListNode *l1, ListNode *l2)
 	//{
 	//	ListNode *HEAD = new ListNode(0);

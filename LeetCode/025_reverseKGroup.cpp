@@ -9,7 +9,7 @@ struct ListNode {
 class Solution
 {
 public:
-	// 法一:时间O(N),空间O(1)
+	// 娉曚竴:鏃堕棿O(N),绌洪棿O(1)
 	ListNode * reverseKGroup(ListNode *head, int k)
 	{
 		if (!head || k == 1)
@@ -19,7 +19,7 @@ public:
 		HEAD->next = head;
 
 		ListNode *slow = head, *fast = HEAD;
-		// fast快k
+		// fast蹇玨
 		for (int i = 0; i < k && fast; i++)
 			fast = fast->next;
 		ListNode *Before = HEAD, *Next = NULL, *K_head = HEAD, *K_tail = head;
@@ -29,7 +29,7 @@ public:
 			{
 				fast = fast ? fast->next : NULL;
 
-				// 翻转
+				// 缈昏浆
 				Next = slow->next;
 				slow->next = Before;
 				Before = slow;
@@ -45,7 +45,7 @@ public:
 		return HEAD->next;
 	}
 
-	// 法一:时间O(N),空间O(K)
+	// 娉曚竴:鏃堕棿O(N),绌洪棿O(K)
 	//ListNode * reverseKGroup(ListNode* head, int k)
 	//{
 	//	ListNode *ans = new ListNode(0);

@@ -22,7 +22,7 @@ public:
 		find();
 		return *(deepNode.begin());
 	}
-	// �ҵ�����ڵ�Ĺ�ͬ����ڵ�
+	// 找到最深节点的共同最深父节点
 	void find()
 	{
 		while (deepNode.size() != 1)
@@ -34,7 +34,7 @@ public:
 			deepNode = upper;
 		}
 	}
-	// �����ҵ�����ڵ㲢����ÿ���ڵ�ĸ��ڵ�
+	// 深搜找到最深节点并保存每个节点的父节点
 	void dfs(TreeNode *p, int depth)
 	{
 		if (depth > deepLength)

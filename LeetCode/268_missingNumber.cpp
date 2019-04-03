@@ -5,17 +5,17 @@ using namespace std;
 class Solution
 {
 public:
-	// ·¨¶ş: Î»²Ù×÷
+	// æ³•äºŒ: ä½æ“ä½œ
 	int missingNumber(vector<int>& nums)
 	{
 		int n = nums.size();
-		int ans = n; // Ïàµ±ÓÚÔ¤ÏÈÒì»òÒ»´Î×î´óÖµ
+		int ans = n; // ç›¸å½“äºé¢„å…ˆå¼‚æˆ–ä¸€æ¬¡æœ€å¤§å€¼
 		for (int i = 0; i < n; i++)
 			ans ^= nums[i] ^ i;
 		return ans;
 	}
 
-	// ·¨Ò»: ×ÜºÍ¼õÈ¥ËùÓĞÊı
+	// æ³•ä¸€: æ€»å’Œå‡å»æ‰€æœ‰æ•°
 	//int missingNumber(vector<int>& nums)
 	//{
 	//	long long n = nums.size();

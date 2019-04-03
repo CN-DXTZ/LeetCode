@@ -5,7 +5,7 @@ using namespace std;
 class Solution
 {
 public:
-	// ·¨Ò»:Öğ×Ö·ûÅĞ¶Ï
+	// æ³•ä¸€:é€å­—ç¬¦åˆ¤æ–­
 	string longestCommonPrefix(vector<string>& strs)
 	{
 		if (strs.empty())
@@ -20,7 +20,7 @@ public:
 			}
 	flag:return  s.substr(0, i);
 	}
-	// ·¨¶ş:Öğ´®ÅĞ¶Ï
+	// æ³•äºŒ:é€ä¸²åˆ¤æ–­
 	//string longestCommonPrefix(vector<string>& strs)
 	//{
 	//	if (strs.empty())

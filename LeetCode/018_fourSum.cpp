@@ -23,7 +23,7 @@ public:
 				if (j != i + 1 && nums[j] == nums[j - 1])
 					continue;
 
-				// Á½±ß¼Ð(twoSum )
+				// ä¸¤è¾¹å¤¹(twoSum )
 				int twoSum = target - nums[i] - nums[j];
 				int left = j + 1, right = nums.size() - 1;
 				while (left < right)

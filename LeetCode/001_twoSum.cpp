@@ -1,4 +1,4 @@
-/*******完结*******/
+/*******瀹岀粨*******/
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -8,7 +8,7 @@ using namespace std;
 class Solution
 {
 public:
-	// 法三:一遍哈希表
+	// 娉曚笁:涓�閬嶅搱甯岃〃
 	vector<int> twoSum(vector<int>& nums, int target)
 	{
 		map<int, int> m;
@@ -26,10 +26,10 @@ public:
 		}
 	}
 
-	// 法二:快排后遍历两遍，第一遍找到目标数对，第二遍找到其对应索引
+	// 娉曚簩:蹇帓鍚庨亶鍘嗕袱閬嶏紝绗竴閬嶆壘鍒扮洰鏍囨暟瀵癸紝绗簩閬嶆壘鍒板叾瀵瑰簲绱㈠紩
 	//vector<int> twoSum(vector<int>& nums, int target)
 	//{
-	//	// 排序后两边夹找到目标数对
+	//	// 鎺掑簭鍚庝袱杈瑰す鎵惧埌鐩爣鏁板
 	//	vector<int> v = nums;
 	//	sort(v.begin(), v.end());
 	//	int left = 0, right = v.size() - 1;
@@ -42,7 +42,7 @@ public:
 	//			right--;
 	//		sum = v[left] + v[right];
 	//	}
-	//	// 找到目标数对对应索引
+	//	// 鎵惧埌鐩爣鏁板瀵瑰簲绱㈠紩
 	//	vector<int> ans;
 	//	for (int k = 0; k < nums.size(); k++)
 	//	{
@@ -54,7 +54,7 @@ public:
 	//	return ans;
 	//}
 
-	// 法一:暴力:O(n^2)
+	// 娉曚竴:鏆村姏:O(n^2)
 	//vector<int> twoSum(vector<int>& nums, int target)
 	//{
 	//	int i = 0, j = 0;

@@ -11,7 +11,7 @@ struct TreeNode {
 class Solution
 {
 public:
-	// ·¨¶þ: È·¶¨Ã¿¸ö½ÚµãµÄ¼«Öµ½Úµã²¢±éÀú
+	// æ³•äºŒ: ç¡®å®šæ¯ä¸ªèŠ‚ç‚¹çš„æžå€¼èŠ‚ç‚¹å¹¶éåŽ†
 	bool isValidBST(TreeNode* root) {
 		return is_Valid_BST(root, NULL, NULL);
 	}
@@ -24,7 +24,7 @@ public:
 			return false;
 		return is_Valid_BST(root->left, minNode, root) && is_Valid_BST(root->right, root, maxNode);
 	}
-	// ·¨Ò»: Ë³ÐòÉîËÑ±éÀúÓ¦ÎªÉýÐòÅÅÁÐ
+	// æ³•ä¸€: é¡ºåºæ·±æœéåŽ†åº”ä¸ºå‡åºæŽ’åˆ—
 	//TreeNode * prev = NULL;
 	//bool isValidBST(TreeNode* root)
 	//{
@@ -35,13 +35,13 @@ public:
 	//{
 	//	if (!node)
 	//		return true;
-	//	// ÏÈµÝ¹é·ÃÎÊÖÁ×îÉî×ó½Úµã
+	//	// å…ˆé€’å½’è®¿é—®è‡³æœ€æ·±å·¦èŠ‚ç‚¹
 	//	if (!is_Valid_BST(node->left))
 	//		return false;
-	//	// ÔÙÅÐ¶ÏÊÇ·ñÉýÐò
+	//	// å†åˆ¤æ–­æ˜¯å¦å‡åº
 	//	if (prev  && node->val <= prev->val)
 	//		return false;
-	//	// ×îºó¸üÐÂµ±Ç°½ÚµãÎªÇ°Ò»¸ö½Úµã²¢·ÃÎÊÓÒ½Úµã
+	//	// æœ€åŽæ›´æ–°å½“å‰èŠ‚ç‚¹ä¸ºå‰ä¸€ä¸ªèŠ‚ç‚¹å¹¶è®¿é—®å³èŠ‚ç‚¹
 	//	prev = node;
 	//	return is_Valid_BST(node->right);
 	//}

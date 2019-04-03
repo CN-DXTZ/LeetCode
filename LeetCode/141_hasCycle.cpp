@@ -9,7 +9,7 @@ struct ListNode {
 class Solution
 {
 public:
-	// ·¨Ò»: ±ê¼Ç±éÀú¹ıµÄ½Úµã
+	// æ³•ä¸€: æ ‡è®°éå†è¿‡çš„èŠ‚ç‚¹
 	bool hasCycle(ListNode *head)
 	{
 		ListNode *flag = new ListNode(0), *next;
@@ -27,7 +27,7 @@ public:
 		return false;
 	}
 
-	// ·¨¶ş: ¿ì×ß2²½, Âı×ß1²½
+	// æ³•äºŒ: å¿«èµ°2æ­¥, æ…¢èµ°1æ­¥
 	//bool hasCycle(ListNode *head)
 	//{
 	//	if (!head)

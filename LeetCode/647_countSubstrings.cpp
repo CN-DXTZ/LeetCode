@@ -2,7 +2,7 @@
 #include<string> 
 #include<vector> 
 using namespace std;
-// 法二:DP
+// 娉曚簩:DP
 class Solution
 {
 public:
@@ -12,14 +12,14 @@ public:
 		vector<vector<int> > dp(sz, vector<int>(sz, 0));
 
 		int num = 0;
-		for (int i = 0; i < sz; i++) // 子串长度-1
-			for (int j = 0; j < (sz - i); j++) // 子串起点
+		for (int i = 0; i < sz; i++) // 瀛愪覆闀垮害-1
+			for (int j = 0; j < (sz - i); j++) // 瀛愪覆璧风偣
 				if (dp[j][j + i] = (i < 2 || dp[j + 1][j + i - 1]) && (s[j] == s[j + i]))
 					num++;
 		return num;
 	}
 } s;
-// 法一: DFS
+// 娉曚竴: DFS
 //class Solution
 //{
 //	string str;

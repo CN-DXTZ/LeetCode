@@ -11,7 +11,7 @@ struct TreeNode {
 class Solution
 {
 public:
-	// 法二: 迭代
+	// 娉曚簩: 杩唬
 	bool isSymmetric(TreeNode* root)
 	{
 		TreeNode *left, *right;
@@ -40,7 +40,7 @@ public:
 		return true;
 	}
 
-	// 法一: 递归
+	// 娉曚竴: 閫掑綊
 	//bool isSymmetric(TreeNode* root)
 	//{
 	//	if (!root)

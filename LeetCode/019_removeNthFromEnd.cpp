@@ -10,15 +10,15 @@ struct ListNode {
 class Solution
 {
 public:
-	// ·¨¶þ:Ê±¼äO(N),¿Õ¼äO(1)
+	// æ³•äºŒ:æ—¶é—´O(N),ç©ºé—´O(1)
 	ListNode * removeNthFromEnd(ListNode* head, int n)
 	{
-		ListNode** slow = &head;// ÒÔ·ÀÉ¾³ýÍ·½Úµã
+		ListNode** slow = &head;// ä»¥é˜²åˆ é™¤å¤´èŠ‚ç‚¹
 		ListNode*fast = head;
-		// Ê¹¿ìÂý½Úµã¼ä¸ôÎªn
+		// ä½¿å¿«æ…¢èŠ‚ç‚¹é—´éš”ä¸ºn
 		while (--n)
 			fast = fast->next;
-		// ¿ìÂý½ÚµãÍ¬Ê±²½½ø£¬Ö±ÖÁ¿ì½ÚµãÖÁÖÕµã
+		// å¿«æ…¢èŠ‚ç‚¹åŒæ—¶æ­¥è¿›ï¼Œç›´è‡³å¿«èŠ‚ç‚¹è‡³ç»ˆç‚¹
 		while (fast->next)
 		{
 			fast = fast->next;
@@ -28,7 +28,7 @@ public:
 		return head;
 	}
 
-	// ·¨Ò»:Ê±¼äO(N),¿Õ¼äO(N)
+	// æ³•ä¸€:æ—¶é—´O(N),ç©ºé—´O(N)
 	//ListNode * removeNthFromEnd(ListNode* head, int n)
 	//{
 	//	vector<ListNode*> temp;
@@ -41,7 +41,7 @@ public:
 
 	//	int size = temp.size();
 	//	ListNode* next = temp[size - n]->next;
-	//	// ±ß½ç:É¾³ýµÚÒ»¸ö
+	//	// è¾¹ç•Œ:åˆ é™¤ç¬¬ä¸€ä¸ª
 	//	if (size == n)
 	//		return next;
 	//	else

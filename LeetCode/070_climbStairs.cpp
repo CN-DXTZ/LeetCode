@@ -2,11 +2,11 @@
 #include<vector>
 using namespace std;
 
-// ¶¯Ì¬¹æ»® ì³²¨ÄÇÆõ
+// åŠ¨æ€è§„åˆ’ æ–æ³¢é‚£å¥‘
 class Solution
 {
 public:
-	// ·¨¶ş:Ê±¼äO(n),¿Õ¼äO(1)
+	// æ³•äºŒ:æ—¶é—´O(n),ç©ºé—´O(1)
 	int climbStairs(int n) 
 	{
 		int a = 1, b = 1;
@@ -14,7 +14,7 @@ public:
 			a = (b += a) - a;
 		return a;
 	}
-	// ·¨Ò»:Ê±¼äO(n),¿Õ¼äO(n)
+	// æ³•ä¸€:æ—¶é—´O(n),ç©ºé—´O(n)
 	//int climbStairs(int n)
 	//{
 	//	vector<int> a(n + 5);

@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-	// ·¨¶ş: ¶¯Ì¬¹æ»®: Ê±¼äO(n),¿Õ¼äO(1)
+	// æ³•äºŒ: åŠ¨æ€è§„åˆ’: æ—¶é—´O(n),ç©ºé—´O(1)
 	int maxSubArray(vector<int>& nums)
 	{
 		int dp = INT_MIN, Max = INT_MIN;
@@ -17,7 +17,7 @@ public:
 		}
 		return Max;
 	}
-	// ·¨Ò»: ¶¯Ì¬¹æ»®: Ê±¼äO(n),¿Õ¼äO(n)
+	// æ³•ä¸€: åŠ¨æ€è§„åˆ’: æ—¶é—´O(n),ç©ºé—´O(n)
 	//int maxSubArray(vector<int>& nums)
 	//{
 	//	int n = nums.size();

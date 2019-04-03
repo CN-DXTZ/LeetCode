@@ -4,7 +4,7 @@
 using namespace std;
 class Solution {
 public:
-	// ·ÖÖÎ
+	// åˆ†æ²»
 	int firstBadVersion(int n)
 	{
 		int min = 1, max = n, mid;

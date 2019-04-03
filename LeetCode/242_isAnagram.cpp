@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-	// 法二:
+	// 娉曚簩:
 	bool isAnagram(string s, string t)
 	{
 		if (s.length() != t.length())
@@ -24,7 +24,7 @@ public:
 				return false;
 		return true;
 	}
-	// 法一:
+	// 娉曚竴:
 	//bool isAnagram(string s, string t)
 	//{
 	//	if (s.length() != t.length())

@@ -14,18 +14,18 @@ public:
 			return ans;
 
 		int len_s = s.size(), num_word = words.size(), len_word = words[0].size();
-		// ´æ´¢µ¥´ÊÁĞ±í
+		// å­˜å‚¨å•è¯åˆ—è¡¨
 		unordered_map<string, int> dict;
 		for (string word : words)
 			dict[word]++;
 
-		// ±éÀú×Ó´®ÆğÊ¼Î»ÖÃ
+		// éå†å­ä¸²èµ·å§‹ä½ç½®
 		for (int idx = 0; idx <= len_s - num_word * len_word; idx++)
 		{
 
 			unordered_map<string, int> temp_dict;
 			int t_num_word = 0;
-			// ±éÀú×Ó´®ËùÓĞµ¥´Ê
+			// éå†å­ä¸²æ‰€æœ‰å•è¯
 			for (; t_num_word < num_word; t_num_word++)
 			{
 				string curr_word = s.substr(idx + t_num_word * len_word, len_word);

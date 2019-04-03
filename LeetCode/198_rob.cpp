@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-	// ·¨¶ş: ¶¯Ì¬¹æ»®: Ê±¼äO(n),¿Õ¼äO(1)
+	// æ³•äºŒ: åŠ¨æ€è§„åˆ’: æ—¶é—´O(n),ç©ºé—´O(1)
 	int rob(vector<int>& nums)
 	{
 		int a = 0, b = 0, flag = 0;
@@ -21,7 +21,7 @@ public:
 		return max(a, b);
 	}
 
-	// ·¨Ò»: ¶¯Ì¬¹æ»®: Ê±¼äO(n),¿Õ¼äO(n)
+	// æ³•ä¸€: åŠ¨æ€è§„åˆ’: æ—¶é—´O(n),ç©ºé—´O(n)
 	//int rob(vector<int>& nums)
 	//{
 	//	int n = nums.size();

@@ -9,7 +9,7 @@ struct ListNode {
 class Solution
 {
 public:
-	// 法三:递归2	★递归调用的次序很重要
+	// 娉曚笁:閫掑綊2	鈽呴�掑綊璋冪敤鐨勬搴忓緢閲嶈
 	//ListNode * reverseList(ListNode* head)
 	//{
 	//	if (!head || !(head->next))
@@ -21,7 +21,7 @@ public:
 	//	return node;
 	//}
 
-	// 法一:迭代
+	// 娉曚竴:杩唬
 	ListNode * reverseList(ListNode* head)
 	{
 		ListNode *Before = NULL, *Next = NULL;
@@ -36,7 +36,7 @@ public:
 		return Before;
 	}
 
-	// 法二:递归1(完全由法一改写)
+	// 娉曚簩:閫掑綊1(瀹屽叏鐢辨硶涓�鏀瑰啓)
 	//ListNode * Before = NULL, *Next = NULL;
 	//ListNode * reverseList(ListNode* head)
 	//{

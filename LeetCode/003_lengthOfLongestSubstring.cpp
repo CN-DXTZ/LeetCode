@@ -1,4 +1,4 @@
-/*******Íê½á*******/
+/*******å®Œç»“*******/
 #include<iostream>
 #include<string>
 #include<algorithm>
@@ -6,22 +6,22 @@ using namespace std;
 
 class Solution {
 public:
-	// ±éÀúÁ½±é
+	// éå†ä¸¤é
 	int lengthOfLongestSubstring(string s)
 	{
 		bool ch[200] = { 0 };
 		int max_num = 0, num = 0;
 		for (int son_end = 0, son_start = 0; son_end < s.length(); son_end++)
 		{
-			// ÅĞ¶ÏÊÇ·ñ³öÏÖÖØ¸´×ÖÄ¸
+			// åˆ¤æ–­æ˜¯å¦å‡ºç°é‡å¤å­—æ¯
 			if (!ch[s[son_end]])
 				ch[s[son_end]] = 1;
 			else
 			{
-				// ¸üĞÂ×î´ó³¤¶È
+				// æ›´æ–°æœ€å¤§é•¿åº¦
 				if (num > max_num)
 					max_num = num;
-				// ÌŞ³ı´Ó×Ó´®¿ªÊ¼ÖÁÖØ¸´×ÖÄ¸µÄÉÏÒ»´Î³öÏÖ¼äËùÓĞ×Ö·û
+				// å‰”é™¤ä»å­ä¸²å¼€å§‹è‡³é‡å¤å­—æ¯çš„ä¸Šä¸€æ¬¡å‡ºç°é—´æ‰€æœ‰å­—ç¬¦
 				for (; son_start < son_end; son_start++)
 				{
 					num--;

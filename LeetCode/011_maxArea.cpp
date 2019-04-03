@@ -13,7 +13,7 @@ public:
 		{
 			int h = min(height[i], height[j]);
 			ans = max(ans, (j - i)*h);
-			// Ìø¹ı¸ß¶È¸üĞ¡µÄ
+			// è·³è¿‡é«˜åº¦æ›´å°çš„
 			while (height[i] <= h && i < j)
 				i++;
 			while (height[j] <= h && i < j)

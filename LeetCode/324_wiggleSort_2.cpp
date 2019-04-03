@@ -5,18 +5,18 @@ using namespace std;
 class Solution
 {
 public:
-	//·¨Ò»:¿ìÅÅ+ÖØÁĞ
+	//æ³•ä¸€:å¿«æ’+é‡åˆ—
 	void wiggleSort(vector<int>& nums)
 	{
 		sort(nums.begin(), nums.end());
 		vector<int> tmp = nums;
 		int len = nums.size();
 		int k = len - 1;
-		//±£Ö¤´ó´ó¶ÔĞ¡´ó£¬´óĞ¡¶ÔĞ¡Ğ¡£¬ÒòÎª´óĞ¡¶ÔĞ¡´óÊ±Öµ¿ÉÄÜÏàÍ¬
-		//´óÊı
+		//ä¿è¯å¤§å¤§å¯¹å°å¤§ï¼Œå¤§å°å¯¹å°å°ï¼Œå› ä¸ºå¤§å°å¯¹å°å¤§æ—¶å€¼å¯èƒ½ç›¸åŒ
+		//å¤§æ•°
 		for (int i = 1; i < len; i += 2)
 			nums[i] = tmp[k--];
-		//Ğ¡Êı
+		//å°æ•°
 		for (int i = 0; i < len; i += 2)
 			nums[i] = tmp[k--];
 	}

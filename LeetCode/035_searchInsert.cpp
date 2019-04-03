@@ -4,7 +4,7 @@ using namespace std;
 class Solution
 {
 public:
-	// 法二: 二分查找
+	// 娉曚簩: 浜屽垎鏌ユ壘
 	int searchInsert(vector<int>& nums, int target)
 	{
 		int min = 0, max = nums.size() - 1, mid;
@@ -22,7 +22,7 @@ public:
 			return min;
 		return max;
 	}
-	// 法一
+	// 娉曚竴
 	//int searchInsert(vector<int>& nums, int target)
 	//{
 	//	for (int i = 0; i < nums.size(); i++)

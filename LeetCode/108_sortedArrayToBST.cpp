@@ -11,8 +11,8 @@ struct TreeNode {
 class Solution
 {
 public:
-	// 递归
-	// 法二: 时间O(n),空间O(1)
+	// 閫掑綊
+	// 娉曚簩: 鏃堕棿O(n),绌洪棿O(1)
 	TreeNode * sortedArrayToBST(vector<int>& nums)
 	{
 		return sorted_Array_To_BST(nums, 0, nums.size());
@@ -29,7 +29,7 @@ public:
 		return root;
 	}
 
-	// 法一: 时间O(n),空间O(n)
+	// 娉曚竴: 鏃堕棿O(n),绌洪棿O(n)
 	//TreeNode * sortedArrayToBST(vector<int> &num)
 	//{
 	//	if (num.size() == 0)

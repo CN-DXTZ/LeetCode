@@ -4,7 +4,7 @@ using namespace std;
 class Solution
 {
 public:
-	// 法二:
+	// 娉曚簩:
 	string countAndSay(int n)
 	{
 		if (n == 1)
@@ -28,7 +28,7 @@ public:
 		return ans;
 	}
 
-	// 法一:
+	// 娉曚竴:
 	//string countAndSay(int n)
 	//{
 	//	string ans = "1";

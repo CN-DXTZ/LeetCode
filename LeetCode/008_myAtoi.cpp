@@ -1,4 +1,4 @@
-/*******Íê½á*******/
+/*******å®Œç»“*******/
 #include<iostream>
 #include<cctype>
 using namespace std;
@@ -6,15 +6,15 @@ class Solution {
 public:
 	int myAtoi(string str)
 	{
-		// ÌÞ³ý¿Õ°×
+		// å‰”é™¤ç©ºç™½
 		int i = 0;
 		while (i < str.length()&&str[i] == ' ')
 			i++;
-		// ·ûºÅ
+		// ç¬¦å·
 		bool negetive = 0;
 		if (str[i] == '-' || str[i] == '+')
 			negetive = (str[i++] == '-');
-		// ¾ø¶ÔÖµ
+		// ç»å¯¹å€¼
 		long long ans = 0;
 		if (isdigit(str[i]))
 		{

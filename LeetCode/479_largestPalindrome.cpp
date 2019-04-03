@@ -5,7 +5,7 @@ using namespace std;
 class Solution
 {
 public:
-	// 未证明回文长度为2n
+	// 鏈瘉鏄庡洖鏂囬暱搴︿负2n
 	int largestPalindrome(int n)
 	{
 		if (n == 1) return 9;

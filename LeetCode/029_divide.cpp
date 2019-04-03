@@ -5,18 +5,18 @@ using namespace std;
 class Solution
 {
 public:
-	// ¶ş·Ö
+	// äºŒåˆ†
 	// dividend = divisor*2^n + divisor*2^(n - 1) + ... + divisor*2 + divisor*1;
-	// ¿ÉÖ»º¬²¿·Ö×ÓÏî
+	// å¯åªå«éƒ¨åˆ†å­é¡¹
 	int divide(int dividend, int divisor)
 	{
 		if (!divisor || (dividend == INT_MIN && divisor == -1))
 			return INT_MAX;
 
 		int num = 0;
-		// »ñµÃ·ûºÅ£¬ÕıÎª0£¬¸ºÎª-1
+		// è·å¾—ç¬¦å·ï¼Œæ­£ä¸º0ï¼Œè´Ÿä¸º-1
 		int flag1 = dividend >> 31, flag2 = divisor >> 31, flag = (flag1^flag2);
-		// È¡Õı
+		// å–æ­£
 		unsigned int d1 = flag1 ? -dividend : dividend;
 		unsigned int d2 = flag2 ? -divisor : divisor;
 

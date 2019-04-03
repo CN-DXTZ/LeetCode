@@ -7,18 +7,18 @@ using namespace std;
 class Solution
 {
 public:
-	// ·¨Èı: 
+	// æ³•ä¸‰: 
 	void rotate(vector<int>& nums, int k)
 	{
 		int n = nums.size(), start = 0, curr_n = n;
-		// Ã¿´Î½«ºó k ¸öÔªËØ·Å¶ÔÖÁÊ£Óà²¿·ÖµÄÇ° k ¸ö
-		// k = k % curr_n: ¼È¿ÉÒÔÔÚÃ¿´ÎÑ­»·ºó¸üĞÂ, ÒÔ·ÀÏÂ´ÎÔ½½ç, Òà¿É×÷Îª½áÊø±êÖ¾, Ê®·Ö»úÇÉ
+		// æ¯æ¬¡å°†å k ä¸ªå…ƒç´ æ”¾å¯¹è‡³å‰©ä½™éƒ¨åˆ†çš„å‰ k ä¸ª
+		// k = k % curr_n: æ—¢å¯ä»¥åœ¨æ¯æ¬¡å¾ªç¯åæ›´æ–°, ä»¥é˜²ä¸‹æ¬¡è¶Šç•Œ, äº¦å¯ä½œä¸ºç»“æŸæ ‡å¿—, ååˆ†æœºå·§
 		for (; k = k % curr_n; curr_n -= k, start += k)
 			for (int i = 0; i < k; i++)
 				swap(nums[start + i], nums[n - k + i]);
 	}
 
-	// ·¨¶ş: ·´×ªÇ° n-k ¸öÔªËØ£¬È»ºó×îºó k ¸öÔªËØ£¬×îºóËùÓĞ n ¸öÔªËØ
+	// æ³•äºŒ: åè½¬å‰ n-k ä¸ªå…ƒç´ ï¼Œç„¶åæœ€å k ä¸ªå…ƒç´ ï¼Œæœ€åæ‰€æœ‰ n ä¸ªå…ƒç´ 
 	//void rotate(vector<int>& nums, int k)
 	//{
 	//	int n = nums.size();
@@ -28,7 +28,7 @@ public:
 	//	reverse(nums.begin(), nums.end());
 	//}
 
-	// ·¨Ò»: ´ÓÒ»¸öÔªËØ¿ªÊ¼Ğı×ªËùÓĞÔªËØ
+	// æ³•ä¸€: ä»ä¸€ä¸ªå…ƒç´ å¼€å§‹æ—‹è½¬æ‰€æœ‰å…ƒç´ 
 	//void rotate(vector<int>& nums, int k)
 	//{
 	//	int n = nums.size();
@@ -36,7 +36,7 @@ public:
 	//	int temp1, temp2;
 	//	for (int cnt = 0; cnt < n;)
 	//	{
-	//		// µ± n%k==0 Ê±, Ğè¸ü»»ÆğÊ¼µã¶à´ÎĞı×ª
+	//		// å½“ n%k==0 æ—¶, éœ€æ›´æ¢èµ·å§‹ç‚¹å¤šæ¬¡æ—‹è½¬
 	//		p_curr = ++p_start;
 	//		temp2 = nums[p_curr];
 	//		do

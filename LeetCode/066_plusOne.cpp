@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-	// 法二:
+	// 娉曚簩:
 	vector<int> plusOne(vector<int>& digits)
 	{
 		int n = digits.size();
@@ -24,7 +24,7 @@ public:
 		digits.push_back(0);
 		return digits;
 	}
-	// 法一:
+	// 娉曚竴:
 	//vector<int> plusOne(vector<int>& digits)
 	//{
 	//	vector<int> ans;

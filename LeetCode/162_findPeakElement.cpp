@@ -5,7 +5,7 @@ class Solution
 {
 public:
 	vector<int> v;
-	// ¶þ·Ö
+	// äºŒåˆ†
 	int findPeakElement(vector<int>& nums)
 	{
 		int left = 0, right = nums.size() - 1;

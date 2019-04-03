@@ -12,7 +12,7 @@ struct TreeNode {
 class Solution
 {
 public:
-	// 法二: 递归
+	// 娉曚簩: 閫掑綊
 	vector<vector<int>> ans;
 	void level_Order(TreeNode *node, int depth)
 	{
@@ -32,7 +32,7 @@ public:
 		return ans;
 	}
 
-	// 法一: 迭代
+	// 娉曚竴: 杩唬
 	//vector<vector<int>> levelOrder(TreeNode* root)
 	//{
 	//	vector<vector<int>> ans;

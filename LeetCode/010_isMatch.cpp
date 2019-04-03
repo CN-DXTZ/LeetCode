@@ -5,38 +5,38 @@ using namespace std;
 
 class Solution
 {
-#define ÕıÔò±í´ïÊ½
-	// "."¿ÉÆ¥ÅäÈÎÒâÒ»¸ö×Ö·û; "x*"ÕûÌå¿ÉÆ¥ÅäÈÎÒâ£¨0~n£©¸ö"x"
+#define æ­£åˆ™è¡¨è¾¾å¼
+	// "."å¯åŒ¹é…ä»»æ„ä¸€ä¸ªå­—ç¬¦; "x*"æ•´ä½“å¯åŒ¹é…ä»»æ„ï¼ˆ0~nï¼‰ä¸ª"x"
 public:
-	// ·¨¶ş: ¶¯Ì¬¹æ»®
+	// æ³•äºŒ: åŠ¨æ€è§„åˆ’
 	bool isMatch(string s, string p)
 	{
 		int len_s = s.size(), len_p = p.size();
-		// dp[i][j] ±íÊ¾ s[0...i - 1] ºÍ p[0...j - 1] Æ¥Åä
+		// dp[i][j] è¡¨ç¤º s[0...i - 1] å’Œ p[0...j - 1] åŒ¹é…
 		vector<vector<bool>> dp(len_s + 1, vector<bool>(len_p + 1, false));
 
-		// ±ß½ç:
-		// 1.s ºÍ p ¿Õ
+		// è¾¹ç•Œ:
+		// 1.s å’Œ p ç©º
 		dp[0][0] = true;
-		// 2.p ¿ÕÊ±
+		// 2.p ç©ºæ—¶
 		for (int i = 1; i <= len_s; i++)
 			dp[i][0] = false;
-		// 3.s ¿ÕÊ±
+		// 3.s ç©ºæ—¶
 		for (int j = 1; j <= len_p; j++)
 			dp[0][j] = j > 1 && dp[0][j - 2] && '*' == p[j - 1];
-		// ÄÚ²¿:
+		// å†…éƒ¨:
 		for (int i = 1; i <= len_s; i++)
 			for (int j = 1; j <= len_p; j++)
 			{
 				if (p[j - 1] != '*')
 					dp[i][j] = dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || '.' == p[j - 1]);
-				else // Á½ÖÖÇé¿ö: ¼ûµİ¹é·¨Ñ­»·²¿·Ö
+				else // ä¸¤ç§æƒ…å†µ: è§é€’å½’æ³•å¾ªç¯éƒ¨åˆ†
 					dp[i][j] = dp[i][j - 2] || (dp[i - 1][j] && (s[i - 1] == p[j - 2] || '.' == p[j - 2]));
 			}
 		return dp[len_s][len_p];
 	}
 
-	// ·¨Ò»: µİ¹é
+	// æ³•ä¸€: é€’å½’
 	//bool isMatch(string s, string p)
 	//{
 	//	if (p.empty())
@@ -48,14 +48,14 @@ public:
 	//	{
 	//		while (!s.empty() && (p[0] == s[0] || p[0] == '.'))
 	//		{
-	//			// "x*"²»Ò»¶¨Æ¥ÅäÍêËùÓĞµÄ"x"
-	//			// Èç: s="aaa",p="a*a", ÆäÖĞ"a*"Ö»Æ¥Åä"aa"
+	//			// "x*"ä¸ä¸€å®šåŒ¹é…å®Œæ‰€æœ‰çš„"x"
+	//			// å¦‚: s="aaa",p="a*a", å…¶ä¸­"a*"åªåŒ¹é…"aa"
 	//			if (isMatch(s, p.substr(2)))
 	//				return true;
 	//			s = s.substr(1);
 	//		}
 	//		return isMatch(s, p.substr(2));
-	//		// ´Ë²¿·ÖÓÃÁËÑ­»·,Òà¿ÉÓÃ´¿µİ¹é,¼´Ö±½Ó:
+	//		// æ­¤éƒ¨åˆ†ç”¨äº†å¾ªç¯,äº¦å¯ç”¨çº¯é€’å½’,å³ç›´æ¥:
 	//		// return (isMatch(s, p.substr(2)) || !s.empty() && (s[0] == p[0] || '.' == p[0]) && isMatch(s.substr(1), p));
 	//	}
 	//	else

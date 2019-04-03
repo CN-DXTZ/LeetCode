@@ -10,7 +10,7 @@ struct ListNode {
 class Solution
 {
 public:
-	// 法二: 分治:两两合并 - 时间O(NlogK),空间O(1)
+	// 娉曚簩: 鍒嗘不:涓や袱鍚堝苟 - 鏃堕棿O(NlogK),绌洪棿O(1)
 	ListNode * mergeKLists(vector<ListNode *>& lists)
 	{
 		if (lists.empty()) 
@@ -45,7 +45,7 @@ public:
 		return HEAD->next;
 	}
 
-	// 法一: 遍历每个链表合并 - 时间O(NK),空间O(1)
+	// 娉曚竴: 閬嶅巻姣忎釜閾捐〃鍚堝苟 - 鏃堕棿O(NK),绌洪棿O(1)
 	//ListNode * mergeKLists(vector<ListNode *>& lists)
 	//{
 	//	ListNode *HEAD = new ListNode(0);

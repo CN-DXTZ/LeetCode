@@ -17,7 +17,7 @@ public:
 		while ((t1 = p->next) && (t1->next))
 		{
 			t2 = t1->next;
-			// ½»»»
+			// äº¤æ¢
 			t1->next = t2->next;
 			t2->next = t1;
 			p->next = t2;
