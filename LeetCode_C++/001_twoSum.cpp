@@ -1,15 +1,15 @@
 /*******完结*******/
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<map>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
 using namespace std;
 
 class Solution
 {
 public:
 	// 法三:一遍哈希表
-	vector<int> twoSum(vector<int>& nums, int target)
+	vector<int> twoSum(vector<int> &nums, int target)
 	{
 		map<int, int> m;
 		for (int i = 0; i < nums.size(); i++)
@@ -18,7 +18,7 @@ public:
 			auto search = m.find(another);
 			if (search != m.end())
 			{
-				vector<int> v = { search->second,i };
+				vector<int> v = {search->second, i};
 				return v;
 			}
 			else
@@ -70,10 +70,10 @@ public:
 
 int main()
 {
-	vector<int> nums1 = { 2, 7, 11, 15 };
+	vector<int> nums1 = {2, 7, 11, 15};
 	vector<int> ans1 = s.twoSum(nums1, 13);
 	cout << ans1[0] << " " << ans1[1] << endl;
-	vector<int> nums2 = { 3,2,4 };
+	vector<int> nums2 = {3, 2, 4};
 	vector<int> ans2 = s.twoSum(nums2, 6);
 	cout << ans2[0] << " " << ans2[1] << endl;
 	system("pause");
