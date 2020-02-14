@@ -1,7 +1,7 @@
 
 public class T003_lengthOfLongestSubstring {
 
-	public static void main(String[] arr) {
+	public static void main(String args[]) {
 		String s1 = "abcabcbb";
 		String s2 = "bbbbb";
 		String s3 = "pwwkew";

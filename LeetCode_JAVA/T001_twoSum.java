@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class T001_twoSum {
 
-	public static void main(String[] arr) {
+	public static void main(String args[]) {
 		int[] nums = new int[] { 2, 7, 11, 15 };
 		int target = 9;
 		

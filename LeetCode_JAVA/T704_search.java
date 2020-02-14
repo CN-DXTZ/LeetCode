@@ -1,6 +1,6 @@
 public class T704_search {
 
-	public static void main(String[] arr) {
+	public static void main(String args[]) {
 		int[] n1 = new int[] { -1, 0, 3, 5, 9, 12 };
 		int t1 = 9, t2 = 2;
 
